@@ -1,0 +1,8 @@
+[CALL_INVITE][01. 03. 2022, 12:23:25] Call invitation sent from android to laptop
+[CALL_RING][01. 03. 2022, 12:23:26] User laptop got the ring
+[CALL_INVITE][01. 03. 2022, 12:23:35] Call invitation sent from android to laptop
+[CALL_RING][01. 03. 2022, 12:23:35] User laptop got the ring
+[CALL_CANCELED][01. 03. 2022, 12:23:38] Invitation for the call between android and laptop has been revoked
+[CALL_INVITE][01. 03. 2022, 12:23:40] Call invitation sent from android to laptop
+[CALL_RING][01. 03. 2022, 12:23:41] User laptop got the ring
+[CALL_BUSY][01. 03. 2022, 12:23:42] Is seems laptop is too BUSY to accept call from android

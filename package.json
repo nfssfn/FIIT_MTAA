@@ -1,0 +1,16 @@
+{
+  "name": "sip-proxy",
+  "version": "1.0.0",
+  "description": "Project for MTAA subject of FIIT STU",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "run": "index"
+  },
+  "keywords": [],
+  "author": "Andrei Cherkas <xcherkas@stuba.sk>",
+  "license": "LICENSE",
+  "dependencies": {
+    "sip": "^0.0.6"
+  }
+}
