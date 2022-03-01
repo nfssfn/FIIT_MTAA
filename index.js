@@ -5,6 +5,7 @@ const loggerFactory = require('./logger');
 const dbg = loggerFactory('debug.log', false);
 
 const REGISTRY = require('./modules/registerUser');
+const REDIRECTOR = require('./modules/redirector');
 const callLogger = require('./modules/callLogger');
 
 proxy.start({
@@ -15,7 +16,6 @@ proxy.start({
     },
     send(m) {
       dbg.outcoming(m);
-      callLogger(m, 'out');
     },
     error: dbg.error
   }
@@ -25,6 +25,11 @@ proxy.start({
     // Registering user
     if (req.method === 'REGISTER' && REGISTRY.registrator(req, proxy) === false)
       return;
+
+    if (req.method === 'INVITE' && REDIRECTOR.transform(req, REGISTRY.hashmap) === false) {
+      callLogger(req, 'redirect');
+      return;
+    }
     
     // Checking if user is registered
     if (REGISTRY.checkRegister(req, proxy) === false)

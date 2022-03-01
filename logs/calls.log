@@ -6,3 +6,9 @@
 [CALL_INVITE][01. 03. 2022, 12:23:40] Call invitation sent from android to laptop
 [CALL_RING][01. 03. 2022, 12:23:41] User laptop got the ring
 [CALL_BUSY][01. 03. 2022, 12:23:42] Is seems laptop is too BUSY to accept call from android
+[CALL_INVITE][01. 03. 2022, 23:53:51] Call invitation sent from android to nowhere
+[CALL_REDIRECT][01. 03. 2022, 23:53:51] Call from android directed to the nowhere was redirected by routing table to laptop
+[CALL_INVITE][01. 03. 2022, 23:53:51] Call invitation sent from android to nowhere
+[CALL_INVITE][01. 03. 2022, 23:53:51] Call invitation sent from android to laptop
+[CALL_RING][01. 03. 2022, 23:53:52] User nowhere got the ring
+[CALL_BUSY][01. 03. 2022, 23:53:55] Is seems nowhere is too BUSY to accept call from android

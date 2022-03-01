@@ -39,5 +39,6 @@ function checkRegister(req, proxy) {
 
 module.exports = {
   registrator,
-  checkRegister
+  checkRegister,
+  hashmap: REGISTRY
 }

@@ -1,4 +1,5 @@
 const sip = require('sip');
+const REDIRECTOR = require('./redirector');
 const loggerFactory = require('../logger');
 
 const callHistory = loggerFactory('calls');
@@ -48,23 +49,33 @@ function busyCallLogger(m) {
   activeCalls.delete(m.headers['call-id']);
 }
 
+function redirectCallLogger(m) {
+  const userFrom = sip.parseUri(m.headers.from.uri).user;
+  const userTo = sip.parseUri(m.headers.to.uri).user;
+  callHistory.CALL_REDIRECT(`Call from ${userFrom} directed to the ${userTo} was redirected by routing table to ${REDIRECTOR.fromTo(userTo)}`);
+}
 
-module.exports = function (m, direction) {
-  if (m.method === 'INVITE' && direction === 'in')
-    startCallLogger(m);
 
-  if (m.reason === 'Ringing' && direction === 'in')
-    ringCallLogger(m);
+module.exports = function (m, direction = 'in') {
+  if (direction === 'in') {
+    if (m.method === 'INVITE')
+      startCallLogger(m);
 
-  if (m.reason === 'Decline' && direction === 'in')
-    declineCallLogger(m);
+    if (m.reason === 'Ringing')
+      ringCallLogger(m);
 
-  if (m.reason === 'Ok' && direction === 'in')
-    acceptedCallLogger(m);
+    if (m.reason === 'Decline')
+      declineCallLogger(m);
 
-  if (m.method === 'CANCEL' && direction === 'in')
-    cancelCallLogger(m);
+    if (m.reason === 'Ok')
+      acceptedCallLogger(m);
 
-  if (m.status === 486 && direction === 'in')
-    busyCallLogger(m);
+    if (m.method === 'CANCEL')
+      cancelCallLogger(m);
+
+    if (m.status === 486)
+      busyCallLogger(m);
+  } else if (direction === 'redirect') {
+    redirectCallLogger(m);
+  }
 }
