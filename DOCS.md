@@ -1,5 +1,5 @@
 # [MTAA] Zadanie 1 – SIP Proxy
-### Andrei Cherkas - [GitHub Link](https://git)
+### Andrei Cherkas - [GitHub Link](https://github.com/nfssfn/FIIT_MTAA)
 
 ## Solution
 Pri rieseni tohto zadania bol pouzity programovaci jazyk Javascript s pouzitim platformy Node.js.

@@ -1,5 +1,5 @@
 .DS_Store
 node_modules
-
+DOCS.pdf
 logs/*
 !logs/calls.log
