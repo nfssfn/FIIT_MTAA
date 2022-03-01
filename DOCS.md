@@ -8,8 +8,12 @@ Ako zaklad, bola pouzita [tato SIP kniznica](https://github.com/kirm/sip.js). Na
 - registrator (registruje userov)
 - uprava responde code textu
 
-Ako klienty boli pouzite LinPhone a Zoiper5.
-> Pre klient LinPhone: V nastaveniach je potrebne vypnut LinPhone proxy (Netwiorking -> UDP/TCP)
+Ako klienty boli pouzite LinPhone, Zoiper5 a PortSIP Client.
+> Pre klient **LinPhone**: V nastaveniach je potrebne vypnut LinPhone proxy (Netwiorking -> UDP/TCP) a nastavit iny port. Stava sa, ze obcas na spravu CANCEL LinPhone odpovie Bad Request.
+
+> Pre klient **Zoiper5**: Stava sa, ze klient neposle spravu CANCEL. Na odmetnutie hovoru klient pouziva BUSY spravu, namiesto Decline.
+
+> Pre klient **PortSIP**: GUI pocas konferencneho hovoru vyzera divne, preto konferencny hovor bol otestovany v kliente LinPhone.
 
 ## Getting Started
 Proxy sa zapina spustenim suboru `index.js`, ktory sa nachadza v hlavnom priecinku projektu.
